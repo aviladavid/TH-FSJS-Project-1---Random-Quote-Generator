@@ -1,49 +1,41 @@
-/* The app will need to display at least 5 quotes from an array of objects. Every quote object should have at least 3 properties, quote (text of the quote), source (who said it), citation (if known), date(if known) Our project will need two main functions: getRandomQuote () should select a random quote from the quotes array and return it. printQuote () which should call the getRandomQuote function and print the quote to the page using the template provided
-We need to include comments in the code to explain what the code is doing Concentrate on getting the results rather than on whether the code is dry and perfect */
+/* Program that randomly selects a quote from an array and displays it to a web page.  */
 
-/*// Variables to hold the values to be printed to the web page once a random quote is selected
-var quote = '';
-var source = '';
-var citation = '';
-var year = '';
-var tag = '';*/
-
-// Array containing the object quotes to be displayed on the web-page.
+// Array containing the object quotes to be displayed on the web page.
 var quotes = [
     {
         quote: '"Live as if you were to die tomorrow. Learn as if you were to live forever."', // Text of the quote to be displayed on the page
         source: '-Mahatma Gandhi.', // Identifies the creator of the quote. Who said it?. 
-        citation: '', // If known. Where the quote comes from (public speech, TV show, book, etc.)
-        year: '', // If known.  
-        tag: 'life' // humor, business, politics, love, inspirational, etc
+        citation: ' ', // If known. Where the quote comes from (public speech, TV show, book, etc.)
+        year: ' ', // If known.  
+        tag: ' Life' // humor, business, politics, love, inspirational, etc
     },
     {
         quote: '"Don\'t cry because it\'s over. Smile because it happened."',
-        source: '- Dr. Seuss.',
-        citation: '',
-        year: '',
-        tag: 'life'
+        source: '- Dr. Seuss',
+        citation: ' ',
+        year: ' ',
+        tag: ' Life'
     },
     {
         quote: '“If you only read the books that everyone else is reading, you can only think what everyone else is thinking.”',
         source: '- Haruki Murakami',
-        citation: 'Norwegian Wood (Novel).',
-        year: ' 1987 ',
-        tag: 'wisdom'
+        citation: ' Norwegian Wood (Novel), ',
+        year: '(1987) ',
+        tag: 'Wisdom'
     },
     {
         quote: '“The flower that blooms in adversity is the rarest and most beautiful of all.”',
         source: '― Walt Disney Company',
         citation: 'Mulan (Movie)',
-        year: ' 1998 ',
-        tag: 'inspirational'
+        year: ' (1998) ',
+        tag: 'Inspirational'
     },
     {
         quote: '“Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.”',
         source: '― Albert Einstein',
         citation: '',
         year: '',
-        tag: 'science'
+        tag: ' Science'
     }
 ]
 
