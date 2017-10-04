@@ -36,6 +36,27 @@ var quotes = [
         citation: '',
         year: '',
         tag: ' Science'
+    },
+    {
+        quote: '“Success consists of going from failure to failure without loss of enthusiasm”',
+        source: '― Winston Churchill',
+        citation: '',
+        year: '',
+        tag: ' Motivational'
+    },
+    {
+        quote: '"You can fool all the people some of the time, and some of the people all the time, but you cannot fool all the people all the time"',
+        source: '- Abraham Lincoln',
+        citation: ' ',
+        year: ' ',
+        tag: ' Life'
+    },
+    {
+        quote: '"You are ghost driving a meat-coated skeleton made from stardust, riding a rock, hurtling through space. Fear Nothing!"',
+        source: '- Unknown',
+        citation: ' ',
+        year: ' ',
+        tag: ' Epic internet stuff'
     }
 ]
 
