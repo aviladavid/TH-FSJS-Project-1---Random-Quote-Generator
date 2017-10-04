@@ -63,6 +63,13 @@ var quotes = [
 // event listener to respond to "Show another quote" button clicks when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+// event listener to change background color on button click
+var domElement = document.querySelector('body');
+document.getElementById('loadQuote').addEventListener("click", () => {
+    var newColor = colorChange();
+    console.log("new color is " + newColor);
+    domElement.style.backgroundColor = newColor;
+});
 
 // getRandomQuote selects random quote object from the quotes array and returns the randomly selected object. 
 function getRandomQuote() {
@@ -86,17 +93,23 @@ function printQuote() {
     HTML += '<span class="year">' + randomQuote['year'] + '</span>';
     HTML += '<span class="tag">' + randomQuote['tag'] + '</span></p>';
     console.log('THE FOLLOWING HTML STRING HAS BEEN CONSTRUCTED: ' + HTML);
-
     document.getElementById('quote-box').innerHTML = HTML;
+    // document.getElementsByClassName('container').backgroundColor(newColor);
+    /*var newColor = colorChange();
+    console.log("new color is " + newColor);
+    var domElement = document.querySelector('container');
+    domElement.style.backgroundColor = newColor;*/
+    
 }
 
 // colorChange generates a random rgb color 
-function colorChange () {
+function colorChange() {
     var r = Math.floor(Math.random() * 255); // random number between 0 - 255
     var g = Math.floor(Math.random() * 255);
     var b = Math.floor(Math.random() * 255);
-    var randomColor = "RGB(" + r + ", " + g + ", " + b + ")";
-    return randomColor;
+    var randColor = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    // console.log("The random RGB color is: " + randColor);
+    return randColor;
 }
 
 
