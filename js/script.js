@@ -90,7 +90,14 @@ function printQuote() {
     document.getElementById('quote-box').innerHTML = HTML;
 }
 
-
+// colorChange generates a random rgb color 
+function colorChange () {
+    var r = Math.floor(Math.random() * 255); // random number between 0 - 255
+    var g = Math.floor(Math.random() * 255);
+    var b = Math.floor(Math.random() * 255);
+    var randomColor = "RGB(" + r + ", " + g + ", " + b + ")";
+    return randomColor;
+}
 
 
 
