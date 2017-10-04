@@ -1,12 +1,12 @@
 /* The app will need to display at least 5 quotes from an array of objects. Every quote object should have at least 3 properties, quote (text of the quote), source (who said it), citation (if known), date(if known) Our project will need two main functions: getRandomQuote () should select a random quote from the quotes array and return it. printQuote () which should call the getRandomQuote function and print the quote to the page using the template provided
 We need to include comments in the code to explain what the code is doing Concentrate on getting the results rather than on whether the code is dry and perfect */
 
-// Variables to hold the values to be printed to the web page once a random quote is selected
+/*// Variables to hold the values to be printed to the web page once a random quote is selected
 var quote = '';
 var source = '';
 var citation = '';
 var year = '';
-var tag = '';
+var tag = '';*/
 
 // Array containing the object quotes to be displayed on the web-page.
 var quotes = [
@@ -28,14 +28,14 @@ var quotes = [
         quote: '“If you only read the books that everyone else is reading, you can only think what everyone else is thinking.”',
         source: '- Haruki Murakami',
         citation: 'Norwegian Wood (Novel).',
-        year: '1987',
+        year: ' 1987 ',
         tag: 'wisdom'
     },
     {
         quote: '“The flower that blooms in adversity is the rarest and most beautiful of all.”',
         source: '― Walt Disney Company',
         citation: 'Mulan (Movie)',
-        year: '1998',
+        year: ' 1998 ',
         tag: 'inspirational'
     },
     {
@@ -44,16 +44,12 @@ var quotes = [
         citation: '',
         year: '',
         tag: 'science'
-    },
+    }
 ]
 
 // event listener to respond to "Show another quote" button clicks when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-function print (message) {
-        var outputDiv = document.getElementById ('quote-box');
-        outputDiv.innerHtml = message;
-    }
 
 // getRandomQuote selects random quote object from the quotes array and returns the randomly selected object. 
 function getRandomQuote() {
@@ -68,20 +64,17 @@ function getRandomQuote() {
 4) Displays (prints) the final HTML to the page */
 function printQuote() {
     var randomQuote = getRandomQuote(); // Variable to hold the random quote object pulled from the quotes array
-    console.log('Random object selected:');
+    console.log('Random object selected from the quotes array:');
     console.log(randomQuote);
     var HTML = ''; // Variable to hold the constructed string that is to be to be displayed
-    for (objKey in randomQuote){ // Cycle through the object keys and assign their value to the global variables 
-        console.log(randomQuote[objKey]);
-        quote = randomQuote[quote];
-        source = randomQuote[source];
-        citation = randomQuote[citation];
-        year = randomQuote[year];
-        tag = randomQuote[tag];
-    }
-    // HTML += '<p class="quote">' + quote + '</p>';
-    // print(HTML);
-    console.log("This the variable quote " + quote);
+    HTML += '<p class="quote">' + randomQuote['quote'] + '</p>';
+    HTML += '<p class="source">' + randomQuote['source'];
+    HTML += '<span class="citation">' + randomQuote['citation'] + '</span>';
+    HTML += '<span class="year">' + randomQuote['year'] + '</span>';
+    HTML += '<span class="tag">' + randomQuote['tag'] + '</span></p>';
+    console.log('THE FOLLOWING HTML STRING HAS BEEN CONSTRUCTED: ' + HTML);
+
+    document.getElementById('quote-box').innerHTML = HTML;
 }
 
 
