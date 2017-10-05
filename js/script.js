@@ -79,8 +79,18 @@ document.getElementById('loadQuote').addEventListener("click", () => {
 
 // getRandomQuote selects random quote object from the quotes array and returns the randomly selected object. 
 function getRandomQuote() {
-    var randNum = Math.floor(Math.random() * quotes.length) + 1; // Random number between 0 and number of items in the quotes array.
-    return quotes[randNum - 1]; // Returns the random object(quote data) from the array. -1 to account for the array's zero-index system
+    var selectedQuote;
+    var randNum;
+    if (tempArray.lenght == 0) {
+        tempArray = quotes;
+    } else {
+        randNum = Math.floor(Math.random() * tempArray.length) + 1; // Random number between 0 and number of items in the tempArray.
+        selectedQuote = tempArray[randNum - 1]; // -1 to also include the chance to get index pos 0
+        console.log("the var selectedQuote has been set to: " + selectedQuote);
+        tempArray.splice(randNum, 1); // removes the item from the tempArray
+    };
+    return selectedQuote; // object not being assigned properly to the variable
+    
 }
 
 /* printQuote does 4 things: 
