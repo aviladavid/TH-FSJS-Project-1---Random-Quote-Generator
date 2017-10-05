@@ -63,12 +63,16 @@ var quotes = [
 // event listener to respond to "Show another quote" button clicks when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-// event listener to change background color on button click
-var domElement = document.querySelector('body');
+// event listener to change background color on button click for the selected DOM elements
+var domElement1 = document.querySelector('body');
+var domElement2 = document.querySelector('#loadQuote')
 document.getElementById('loadQuote').addEventListener("click", () => {
-    var newColor = colorChange();
-    console.log("new color is " + newColor);
-    domElement.style.backgroundColor = newColor;
+    var newColor1 = colorChange();
+    var newColor2 = colorChange();
+    console.log("new color 1 is " + newColor1);
+    console.log("new color 1 is " + newColor2);
+    domElement1.style.backgroundColor = newColor1;
+    domElement2.style.backgroundColor = newColor2;
 });
 
 // getRandomQuote selects random quote object from the quotes array and returns the randomly selected object. 
@@ -90,8 +94,8 @@ function printQuote() {
     HTML += '<p class="quote">' + randomQuote['quote'] + '</p>';
     HTML += '<p class="source">' + randomQuote['source'];
     HTML += '<span class="citation">' + randomQuote['citation'] + '</span>';
-    HTML += '<span class="year">' + randomQuote['year'] + '</span>';
-    HTML += '<span class="tag">' + randomQuote['tag'] + '</span></p>';
+    HTML += '<span class="year">' + randomQuote['year'] + '</span></p>';
+    HTML += '<p class="tag">' + randomQuote['tag'] + '</p>';
     console.log('THE FOLLOWING HTML STRING HAS BEEN CONSTRUCTED: ' + HTML);
     document.getElementById('quote-box').innerHTML = HTML;
     // document.getElementsByClassName('container').backgroundColor(newColor);
