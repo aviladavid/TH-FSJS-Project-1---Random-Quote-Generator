@@ -60,7 +60,7 @@ var quotes = [
     }
 ];
 
-var tempArray = []; // will temporarily hold the objects that have been used
+var tempArray = []; // will temporarily hold the objects that will be used to pick a random quote
 
 // event listener to respond to "Show another quote" button clicks when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
@@ -72,7 +72,7 @@ document.getElementById('loadQuote').addEventListener("click", () => {
     var newColor1 = colorChange();
     var newColor2 = colorChange();
     console.log("new color 1 is " + newColor1);
-    console.log("new color 1 is " + newColor2);
+    console.log("new color 2 is " + newColor2);
     domElement1.style.backgroundColor = newColor1;
     domElement2.style.backgroundColor = newColor2;
 });
@@ -85,7 +85,7 @@ function getRandomQuote() {
         randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
         selectedQuote = tempArray[randNum];
         console.log("The var selectedQuote has been set to: " + selectedQuote);
-        tempArray.splice(randNum, 1); // removes the item from the tempArray
+        tempArray.splice(randNum, 1); // removes the object from the tempArray so that it won't come up again until the tempArray is repopulate
         console.log("OBJECT REMOVED FROM tempArray. ***** .length = " + tempArray.length);
     } else {
         tempArray = quotes.slice();
