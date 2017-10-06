@@ -121,10 +121,16 @@ function printQuote() {
 
 // colorChange generates a random rgb color 
 function colorChange() {
-    var r = Math.floor(Math.random() * 255); // random number between 0 - 255
-    var g = Math.floor(Math.random() * 255);
-    var b = Math.floor(Math.random() * 255);
-    var randColor = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    var randValue;
+    var randColor = 'rgb(';
+    for (var i = 0; i < 3; i ++){
+        randValue = Math.floor(Math.random() * 255);
+        if (i !== 2){
+            randColor += randValue + ',';
+        } else {
+            randColor += randValue + ')'
+        }
+    };
     // console.log("The random RGB color is: " + randColor);
     return randColor;
 };
