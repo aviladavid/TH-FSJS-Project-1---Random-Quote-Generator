@@ -58,7 +58,7 @@ var quotes = [
         year: ' ',
         tag: ' Epic internet stuff'
     }
-]
+];
 
 var tempArray = []; // will temporarily hold the objects that have been used
 
@@ -67,7 +67,7 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 // event listener to change background color on button click for the selected DOM elements
 var domElement1 = document.querySelector('body');
-var domElement2 = document.querySelector('#loadQuote')
+var domElement2 = document.querySelector('#loadQuote');
 document.getElementById('loadQuote').addEventListener("click", () => {
     var newColor1 = colorChange();
     var newColor2 = colorChange();
@@ -81,17 +81,18 @@ document.getElementById('loadQuote').addEventListener("click", () => {
 function getRandomQuote() {
     var selectedQuote;
     var randNum;
-    if (tempArray.lenght == 0) {
+    if (tempArray.length === 0) {
         tempArray = quotes;
+        console.log("tempArray has been set equal to quotes");
+        // getRandomQuote();
     } else {
-        randNum = Math.floor(Math.random() * tempArray.length) + 1; // Random number between 0 and number of items in the tempArray.
-        selectedQuote = tempArray[randNum - 1]; // -1 to also include the chance to get index pos 0
+        randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
+        selectedQuote = tempArray[randNum]; 
         console.log("the var selectedQuote has been set to: " + selectedQuote);
         tempArray.splice(randNum, 1); // removes the item from the tempArray
     };
     return selectedQuote; // object not being assigned properly to the variable
-    
-}
+};
 
 /* printQuote does 4 things: 
 1) Calls the getRandomQuote function and stores the returned random quote in a variable. 
@@ -116,7 +117,7 @@ function printQuote() {
     var domElement = document.querySelector('container');
     domElement.style.backgroundColor = newColor;*/
     
-}
+};
 
 // colorChange generates a random rgb color 
 function colorChange() {
@@ -126,7 +127,7 @@ function colorChange() {
     var randColor = 'rgb(' + r + ', ' + g + ', ' + b + ')';
     // console.log("The random RGB color is: " + randColor);
     return randColor;
-}
+};
 
 
 
