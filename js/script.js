@@ -84,31 +84,14 @@ function getRandomQuote() {
     if (tempArray.length > 0) {
         randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
         selectedQuote = tempArray[randNum];
-        console.log("the var selectedQuote has been set to: " + selectedQuote);
+        console.log("The var selectedQuote has been set to: " + selectedQuote);
         tempArray.splice(randNum, 1); // removes the item from the tempArray
         console.log("OBJECT REMOVED FROM tempArray. ***** .length = " + tempArray.length);
     } else {
-        tempArray = quotes;
-        console.log("tempArray has been set equal to quotes");
+        tempArray = quotes.slice();
+        console.log("Contents of 'quotes' array has been copied to tempArray");
         getRandomQuote();
     };
-
-   /* if (tempArray.length === 0) {
-        tempArray = quotes;
-        console.log("IF: tempArray has been set equal to quotes");
-        randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
-        selectedQuote = tempArray[randNum]; 
-        console.log("the var selectedQuote has been set to: " + selectedQuote);
-        tempArray.splice(randNum, 1); // removes the item from the tempArray
-        console.log("OBJECT REMOVED FROM tempArray by if, " + "tempArray.length = " + tempArray.length);
-        // getRandomQuote();
-    } else {
-        randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
-        selectedQuote = tempArray[randNum]; 
-        console.log("the var selectedQuote has been set to: " + selectedQuote);
-        tempArray.splice(randNum, 1); // removes the item from the tempArray
-        console.log("OBJECT REMOVED FROM tempArray by else, " + "tempArray.length = " + tempArray.length);
-    };*/
     return selectedQuote; // object not being assigned properly to the variable
 };
 
@@ -129,12 +112,6 @@ function printQuote() {
     HTML += '<p class="tag">' + randomQuote['tag'] + '</p>';
     console.log('THE FOLLOWING HTML STRING HAS BEEN CONSTRUCTED: ' + HTML);
     document.getElementById('quote-box').innerHTML = HTML;
-    // document.getElementsByClassName('container').backgroundColor(newColor);
-    /*var newColor = colorChange();
-    console.log("new color is " + newColor);
-    var domElement = document.querySelector('container');
-    domElement.style.backgroundColor = newColor;*/
-    
 };
 
 // colorChange generates a random rgb color 
