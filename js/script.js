@@ -81,16 +81,34 @@ document.getElementById('loadQuote').addEventListener("click", () => {
 function getRandomQuote() {
     var selectedQuote;
     var randNum;
-    if (tempArray.length === 0) {
+    if (tempArray.length > 0) {
+        randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
+        selectedQuote = tempArray[randNum];
+        console.log("the var selectedQuote has been set to: " + selectedQuote);
+        tempArray.splice(randNum, 1); // removes the item from the tempArray
+        console.log("OBJECT REMOVED FROM tempArray. ***** .length = " + tempArray.length);
+    } else {
         tempArray = quotes;
         console.log("tempArray has been set equal to quotes");
+        getRandomQuote();
+    };
+
+   /* if (tempArray.length === 0) {
+        tempArray = quotes;
+        console.log("IF: tempArray has been set equal to quotes");
+        randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
+        selectedQuote = tempArray[randNum]; 
+        console.log("the var selectedQuote has been set to: " + selectedQuote);
+        tempArray.splice(randNum, 1); // removes the item from the tempArray
+        console.log("OBJECT REMOVED FROM tempArray by if, " + "tempArray.length = " + tempArray.length);
         // getRandomQuote();
     } else {
         randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
         selectedQuote = tempArray[randNum]; 
         console.log("the var selectedQuote has been set to: " + selectedQuote);
         tempArray.splice(randNum, 1); // removes the item from the tempArray
-    };
+        console.log("OBJECT REMOVED FROM tempArray by else, " + "tempArray.length = " + tempArray.length);
+    };*/
     return selectedQuote; // object not being assigned properly to the variable
 };
 
@@ -131,7 +149,7 @@ function colorChange() {
             randColor += randValue + ')'
         }
     };
-    // console.log("The random RGB color is: " + randColor);
+    console.log("The random RGB color is: " + randColor);
     return randColor;
 };
 
