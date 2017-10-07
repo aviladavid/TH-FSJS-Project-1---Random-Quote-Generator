@@ -71,8 +71,8 @@ var domElement2 = document.querySelector('#loadQuote');
 document.getElementById('loadQuote').addEventListener("click", () => {
     var newColor1 = colorChange();
     var newColor2 = colorChange();
-    console.log("new background color is " + newColor1);
-    console.log("new button color is " + newColor2);
+    console.log("BODY BACKGROUND COLOR: " + newColor1);
+    console.log("BUTTON BACKGROUND COLOR: " + newColor2);
     domElement1.style.backgroundColor = newColor1;
     domElement2.style.backgroundColor = newColor2;
     console.log("------END------");
@@ -84,15 +84,17 @@ function getRandomQuote() {
     var randNum;
     if (tempArray.length > 0) {
         randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
-        console.log("The random number is: " + randNum);
+        console.log("THE RANDOM NUMBER IS: " + randNum);
         selectedQuote = tempArray[randNum];
         console.log("SELECTED QUOTE BELOW");
         console.log(selectedQuote);
         tempArray.splice(randNum, 1); // removes the object from the tempArray so that it won't come up again until the tempArray is repopulate
-        console.log("OBJECT REMOVED FROM tempArray. ***** .length = " + tempArray.length);
+        console.log("OBJECT REMOVED FROM tempArray");
+        console.log("NEW ARRAY LENGTH = " + tempArray.length);
     } else {
-        tempArray = quotes.slice();
-        console.log("Contents of 'quotes' array has been copied to tempArray");
+        // tempArray = quotes.slice();
+        tempArray = quotes;
+        console.log("CONTENTS OF 'quotes' HAVE BEEN COPIED TO tempArray");
         getRandomQuote();
     };
     return selectedQuote; 
@@ -105,14 +107,14 @@ function getRandomQuote() {
 4) Displays (prints) the final HTML to the page */
 function printQuote() {
     var randomQuote = getRandomQuote(); // Variable to hold the random quote object pulled from the quotes array
-    console.log("The random quote selected is: " + randomQuote.quote);
+    console.log("THE RANDOMLY SELECTED QUOTE IS: " + randomQuote.quote);
     var HTML = ''; // Variable to hold the constructed string that is to be to be displayed
     HTML += '<p class="quote">' + randomQuote.quote + '</p>';
     HTML += '<p class="source">' + randomQuote.source;
     if (randomQuote.citation){
         HTML += '<span class="citation">' + randomQuote.citation + '</span>';
     };
-    if (randomQutoe.year){ 
+    if (randomQuote.year){ 
         HTML += '<span class="year">' + randomQuote['year'] + '</span></p>';
     };
     HTML += '<p class="tag">' + randomQuote['tag'] + '</p>';
