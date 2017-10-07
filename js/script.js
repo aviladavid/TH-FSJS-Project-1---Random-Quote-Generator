@@ -9,7 +9,8 @@ automatically refreshed on its own every 30 seconds.
 HOW IT WORKS: The program copies the objects from the quotes array (found in quotes.js) into the 
 tempArray. Every time a quote is randomly selected form the tempArray and assigned to the 
 selectedQuote variable, the object is removed from the tempArray so that we can ensure that no 
-quotes repeat until all quotes have been shown. An timer/interval has been set up so that after the first clicks on the button, the quotes will refresh every 30secs*/ 
+quotes repeat until all quotes have been shown. An timer/interval has been set up so that after 
+the first clicks on the button, the quotes will refresh every 30secs*/ 
 
 let tempArray = []; // temporary copy of the quotes array
 let quoteTimer; // Variable for the 30 sec timer on printQuote
