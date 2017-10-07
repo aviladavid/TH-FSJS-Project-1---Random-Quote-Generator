@@ -6,14 +6,20 @@ WHAT THE PROGRAM DOES: On button click, it displays a random quote to the user a
 the background to a new random RGB color. After the first button click the quote is then 
 automatically refreshed on its own every 30 seconds. 
 
+EXCEEDS ESPECTATIONS REQUIREMENTS:
+    + Added the additional property 'category' to the objects in the quotes array
+    + The getRandomQuote function does not return a duplicate quote until all quotes have been returned once
+    + Added a timer so that quotes change automatically every 30 seconds
+    + Background color changes every time the quote changes
+
 HOW IT WORKS: The program copies the objects from the quotes array (found in quotes.js) into the 
 tempArray. Every time a quote is randomly selected form the tempArray and assigned to the 
 selectedQuote variable, the object is removed from the tempArray so that we can ensure that no 
 quotes repeat until all quotes have been shown. An timer/interval has been set up so that after 
 the first clicks on the button, the quotes will refresh every 30secs*/ 
 
-let tempArray = []; // temporary copy of the quotes array
-let quoteTimer; // Variable for the 30 sec timer on printQuote
+let tempArray = []; // To hold a temporary copy of the quotes array
+let quoteTimer; // Variable for the 30sec timer quote refresh in the printQuote function
 
 // The function getRandomQuote selects a random object (a quote) from the quotes array and returns the randomly selected object. 
 const getRandomQuote = () => {
@@ -55,7 +61,7 @@ const printQuote = () => {
     if (tempQuoteObject.year){ 
         HTML += '<span class="year">' + tempQuoteObject.year + '</span></p>';
     };
-    HTML += '<p class="tag">' + tempQuoteObject.tag + '</p>';
+    HTML += '<p class="category">' + tempQuoteObject.category + '</p>';
     document.getElementById('quote-box').innerHTML = HTML;
     // Timer for changing the quote every 30sec
     window.clearTimeout(quoteTimer);
