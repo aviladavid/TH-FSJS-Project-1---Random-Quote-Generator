@@ -31,7 +31,7 @@ function getRandomQuote() {
 2) It constructs a string containing the different properties of the quote object. 
 3) Doesn't add object properties (year and citation) if they are missing from the object
 4) Displays (prints) the final HTML to the page */
-function printQuote() {
+const printQuote = () => {
     var tempQuoteObject = getRandomQuote(); // Variable to hold the random quote object pulled from the quotes array
     console.log("THE RANDOMLY SELECTED QUOTE IS: " + tempQuoteObject.quote);
     var HTML = ''; // Variable to hold the constructed string that is to be to be displayed
@@ -50,9 +50,28 @@ function printQuote() {
     window.clearTimeout(quoteTimer);
     quoteTimer = window.setInterval(printQuote, 30000);
 };
+/*function printQuote() {
+    var tempQuoteObject = getRandomQuote(); // Variable to hold the random quote object pulled from the quotes array
+    console.log("THE RANDOMLY SELECTED QUOTE IS: " + tempQuoteObject.quote);
+    var HTML = ''; // Variable to hold the constructed string that is to be to be displayed
+    HTML += '<p class="quote">' + tempQuoteObject.quote + '</p>';
+    HTML += '<p class="source">' + tempQuoteObject.source;
+    if (tempQuoteObject.citation){
+        HTML += '<span class="citation">' + tempQuoteObject.citation + '</span>';
+    };
+    if (tempQuoteObject.year){ 
+        HTML += '<span class="year">' + tempQuoteObject.year + '</span></p>';
+    };
+    HTML += '<p class="tag">' + tempQuoteObject.tag + '</p>';
+    console.log('THE FOLLOWING HTML STRING HAS BEEN CONSTRUCTED: ' + HTML);
+    document.getElementById('quote-box').innerHTML = HTML;
+
+    window.clearTimeout(quoteTimer);
+    quoteTimer = window.setInterval(printQuote, 30000);
+};*/
 
 // colorChange generates a random rgb color 
-const colorcChange = () => {
+const colorChange = () => {
     var randValue;
     var randColor = 'rgb(';
     for (var i = 0; i < 3; i ++){
@@ -61,7 +80,7 @@ const colorcChange = () => {
             randColor += randValue + ',';
         } else {
             randColor += randValue + ')'
-        }
+        };
     };
 return randColor;
 };
