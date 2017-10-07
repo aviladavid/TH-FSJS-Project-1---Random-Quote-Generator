@@ -75,6 +75,7 @@ document.getElementById('loadQuote').addEventListener("click", () => {
     console.log("new color 2 is " + newColor2);
     domElement1.style.backgroundColor = newColor1;
     domElement2.style.backgroundColor = newColor2;
+    console.log("------END------");
 });
 
 // getRandomQuote selects random quote object from the quotes array and returns the randomly selected object. 
@@ -83,8 +84,10 @@ function getRandomQuote() {
     var randNum;
     if (tempArray.length > 0) {
         randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
+        console.log("The random number is: " + randNum);
         selectedQuote = tempArray[randNum];
-        console.log("The var selectedQuote has been set to: " + selectedQuote);
+        console.log("SELECTED QUOTE BELOW");
+        console.log(selectedQuote);
         tempArray.splice(randNum, 1); // removes the object from the tempArray so that it won't come up again until the tempArray is repopulate
         console.log("OBJECT REMOVED FROM tempArray. ***** .length = " + tempArray.length);
     } else {
@@ -112,6 +115,7 @@ function printQuote() {
     HTML += '<p class="tag">' + randomQuote['tag'] + '</p>';
     console.log('THE FOLLOWING HTML STRING HAS BEEN CONSTRUCTED: ' + HTML);
     document.getElementById('quote-box').innerHTML = HTML;
+
 };
 
 // colorChange generates a random rgb color 
@@ -126,9 +130,10 @@ function colorChange() {
             randColor += randValue + ')'
         }
     };
-    console.log("The random RGB color is: " + randColor);
-    return randColor;
+return randColor;
 };
+
+// setInterval(printQuote(), 3000);
 
 
 
