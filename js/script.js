@@ -52,7 +52,7 @@ function printQuote() {
 };
 
 // colorChange generates a random rgb color 
-function colorChange() {
+const colorcChange = () => {
     var randValue;
     var randColor = 'rgb(';
     for (var i = 0; i < 3; i ++){
@@ -65,6 +65,19 @@ function colorChange() {
     };
 return randColor;
 };
+/*function colorChange() {
+    var randValue;
+    var randColor = 'rgb(';
+    for (var i = 0; i < 3; i ++){
+        randValue = Math.floor(Math.random() * 255);
+        if (i !== 2){
+            randColor += randValue + ',';
+        } else {
+            randColor += randValue + ')'
+        }
+    };
+return randColor;
+};*/
 
 // event listener to respond to "Show another quote" button clicks when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
