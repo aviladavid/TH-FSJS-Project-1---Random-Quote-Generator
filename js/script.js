@@ -61,6 +61,7 @@ var quotes = [
 ];
 
 var tempArray = []; // will temporarily hold the objects that will be used to pick a random quote
+var quoteTimer; // Variable for the 30 sec timer on printQuote
 
 // event listener to respond to "Show another quote" button clicks when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
@@ -95,7 +96,6 @@ function getRandomQuote() {
     } else {
         tempArray = quotes.slice();
         console.log("CONTENTS OF 'quotes' HAVE BEEN COPIED TO tempArray");
-        // getRandomQuote();
         printQuote(); // Start over
     };
     return selectedQuote; 
@@ -121,6 +121,9 @@ function printQuote() {
     HTML += '<p class="tag">' + randomQuote['tag'] + '</p>';
     console.log('THE FOLLOWING HTML STRING HAS BEEN CONSTRUCTED: ' + HTML);
     document.getElementById('quote-box').innerHTML = HTML;
+
+    window.clearTimeout(quoteTimer);
+    quoteTimer = window.setInterval(printQuote, 30000);
 };
 
 // colorChange generates a random rgb color 
@@ -138,7 +141,7 @@ function colorChange() {
 return randColor;
 };
 
-// setInterval(printQuote(), 3000);
+
 
 
 
