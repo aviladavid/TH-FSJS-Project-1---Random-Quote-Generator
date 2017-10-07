@@ -1,7 +1,6 @@
 /* Program that randomly selects a quote from an array and displays it to a web page.  */
 
-
-var tempArray; // temporary copy of the quotes array
+var tempArray = []; // temporary copy of the quotes array
 var quoteTimer; // Variable for the 30 sec timer on printQuote
 
 // getRandomQuote selects random quote object from the quotes array and returns the randomly selected object. 
@@ -15,12 +14,13 @@ function getRandomQuote() {
         console.log("A RANDOMLY SELECTED OBJECT HAS BEEN ASSIGNED TO THE VARIABLE selectedQuote ");
         console.log("THE OBJECT HELD BY selectedQuote IS:")
         console.log(selectedQuote);
-        tempArray.splice(randNum, 1); // removes the object from the tempArray so that it won't come up again until the tempArray is repopulate
+        tempArray.splice(randNum, 1); // removes the object from the tempArray so that it won't come up again until the tempArray is repopulated
         console.log("OBJECT REMOVED FROM tempArray");
         console.log("NEW ARRAY LENGTH = " + tempArray.length);
     } else {
         tempArray = quotes.slice();
         console.log("CONTENTS OF 'quotes' HAVE BEEN COPIED TO tempArray");
+        console.log(tempArray);
         printQuote(); // Start over
     };
     return selectedQuote; 
@@ -32,18 +32,18 @@ function getRandomQuote() {
 3) Doesn't add object properties (year and citation) if they are missing from the object
 4) Displays (prints) the final HTML to the page */
 function printQuote() {
-    var randomQuote = getRandomQuote(); // Variable to hold the random quote object pulled from the quotes array
-    console.log("THE RANDOMLY SELECTED QUOTE IS: " + randomQuote.quote);
+    var tempQuoteObject = getRandomQuote(); // Variable to hold the random quote object pulled from the quotes array
+    console.log("THE RANDOMLY SELECTED QUOTE IS: " + tempQuoteObject.quote);
     var HTML = ''; // Variable to hold the constructed string that is to be to be displayed
-    HTML += '<p class="quote">' + randomQuote.quote + '</p>';
-    HTML += '<p class="source">' + randomQuote.source;
-    if (randomQuote.citation){
-        HTML += '<span class="citation">' + randomQuote.citation + '</span>';
+    HTML += '<p class="quote">' + tempQuoteObject.quote + '</p>';
+    HTML += '<p class="source">' + tempQuoteObject.source;
+    if (tempQuoteObject.citation){
+        HTML += '<span class="citation">' + tempQuoteObject.citation + '</span>';
     };
-    if (randomQuote.year){ 
-        HTML += '<span class="year">' + randomQuote['year'] + '</span></p>';
+    if (tempQuoteObject.year){ 
+        HTML += '<span class="year">' + tempQuoteObject.year + '</span></p>';
     };
-    HTML += '<p class="tag">' + randomQuote['tag'] + '</p>';
+    HTML += '<p class="tag">' + tempQuoteObject.tag + '</p>';
     console.log('THE FOLLOWING HTML STRING HAS BEEN CONSTRUCTED: ' + HTML);
     document.getElementById('quote-box').innerHTML = HTML;
 
@@ -74,11 +74,11 @@ var domElement1 = document.querySelector('body');
 var domElement2 = document.querySelector('#loadQuote');
 document.getElementById('loadQuote').addEventListener("click", () => {
     var newColor1 = colorChange();
-    var newColor2 = colorChange();
+    // var newColor2 = colorChange();
     console.log("BODY BACKGROUND COLOR: " + newColor1);
-    console.log("BUTTON BACKGROUND COLOR: " + newColor2);
+    console.log("BUTTON BACKGROUND COLOR: " + newColor1);
     domElement1.style.backgroundColor = newColor1;
-    domElement2.style.backgroundColor = newColor2;
+    domElement2.style.backgroundColor = newColor1;
     console.log("------END------");
 });
 
