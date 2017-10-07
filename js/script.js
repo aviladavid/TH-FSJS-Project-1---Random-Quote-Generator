@@ -86,16 +86,17 @@ function getRandomQuote() {
         randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
         console.log("THE RANDOM NUMBER IS: " + randNum);
         selectedQuote = tempArray[randNum];
-        console.log("SELECTED QUOTE BELOW");
+        console.log("A RANDOMLY SELECTED OBJECT HAS BEEN ASSIGNED TO THE VARIABLE selectedQuote ");
+        console.log("THE OBJECT HELD BY selectedQuote IS:")
         console.log(selectedQuote);
         tempArray.splice(randNum, 1); // removes the object from the tempArray so that it won't come up again until the tempArray is repopulate
         console.log("OBJECT REMOVED FROM tempArray");
         console.log("NEW ARRAY LENGTH = " + tempArray.length);
     } else {
-        // tempArray = quotes.slice();
-        tempArray = quotes;
+        tempArray = quotes.slice();
         console.log("CONTENTS OF 'quotes' HAVE BEEN COPIED TO tempArray");
-        getRandomQuote();
+        // getRandomQuote();
+        printQuote(); // Start over
     };
     return selectedQuote; 
 };
