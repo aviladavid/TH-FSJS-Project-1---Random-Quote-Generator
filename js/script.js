@@ -1,12 +1,14 @@
-/* Program that randomly selects a quote from an array and displays it to a web page.  */
+/* TREEOUSE TECHDEGREE FULL STACK JAVASCRIPT - PROJECT 1 - RANDOM QUOTE GENERATOR
 
-var tempArray = []; // temporary copy of the quotes array
-var quoteTimer; // Variable for the 30 sec timer on printQuote
+The program randomly selects a quote from the quotes.  */
+
+let tempArray = []; // temporary copy of the quotes array
+let quoteTimer; // Variable for the 30 sec timer on printQuote
 
 // getRandomQuote selects random quote object from the quotes array and returns the randomly selected object. 
 const getRandomQuote = () => {
-    var selectedQuote;
-    var randNum;
+    let selectedQuote;
+    let randNum;
     if (tempArray.length > 0) {
         randNum = Math.floor(Math.random() * tempArray.length); // Random number between 0 and number of items in the tempArray.
         console.log("THE RANDOM NUMBER IS: " + randNum);
@@ -32,9 +34,9 @@ const getRandomQuote = () => {
 3) Doesn't add object properties (year and citation) if they are missing from the object
 4) Displays (prints) the final HTML to the page */
 const printQuote = () => {
-    var tempQuoteObject = getRandomQuote(); // Variable to hold the random quote object pulled from the quotes array
+    let tempQuoteObject = getRandomQuote(); // Variable to hold the random quote object pulled from the quotes array
     console.log("THE RANDOMLY SELECTED QUOTE IS: " + tempQuoteObject.quote);
-    var HTML = ''; // Variable to hold the constructed string that is to be to be displayed
+    let HTML = ''; // Variable to hold the constructed string that is to be to be displayed
     HTML += '<p class="quote">' + tempQuoteObject.quote + '</p>';
     HTML += '<p class="source">' + tempQuoteObject.source;
     if (tempQuoteObject.citation){
@@ -53,8 +55,8 @@ const printQuote = () => {
 
 // The function colorChange generates and returns a random RGB color
 const colorChange = () => {
-    var randValue;
-    var randColor = 'rgb(';
+    let randValue;
+    let randColor = 'rgb(';
     for (var i = 0; i < 3; i ++){
         randValue = Math.floor(Math.random() * 255);
         if (i !== 2){
@@ -73,12 +75,11 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 var domElement1 = document.querySelector('body');
 var domElement2 = document.querySelector('#loadQuote');
 document.getElementById('loadQuote').addEventListener("click", () => {
-    var newColor1 = colorChange();
-    // var newColor2 = colorChange();
-    console.log("BODY BACKGROUND COLOR: " + newColor1);
-    console.log("BUTTON BACKGROUND COLOR: " + newColor1);
-    domElement1.style.backgroundColor = newColor1;
-    domElement2.style.backgroundColor = newColor1;
+    let newColor = colorChange();
+    console.log("BODY BACKGROUND COLOR: " + newColor);
+    console.log("BUTTON BACKGROUND COLOR: " + newColor);
+    domElement1.style.backgroundColor = newColor;
+    domElement2.style.backgroundColor = newColor;
     console.log("------END------");
 });
 

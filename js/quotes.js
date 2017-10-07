@@ -1,4 +1,4 @@
-var quotes = [
+const quotes = [
     {
         quote: 'Live as if you were to die tomorrow. Learn as if you were to live forever.', // Text of the quote to be displayed on the page
         source: 'Mahatma Gandhi', // Identifies the creator of the quote. Who said it?. 
