@@ -45,6 +45,13 @@ var quotes = [
         tag: '-Motivational.'
     },
     {
+        quote: '"It\'s the possibility of having a dream come true that makes life interesting."',
+        source: "-Paulo Coelho-",
+        citation: " The Alchemist.",
+        year: " (1988)",
+        tag: "-Inspirational."
+},
+    {
         quote: '"You can fool all the people some of the time, and some of the people all the time, but you cannot fool all the people all the time."',
         source: '-Abraham Lincoln-',
         citation: '',
