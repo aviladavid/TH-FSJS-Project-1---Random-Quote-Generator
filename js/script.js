@@ -4,7 +4,7 @@ var tempArray = []; // temporary copy of the quotes array
 var quoteTimer; // Variable for the 30 sec timer on printQuote
 
 // getRandomQuote selects random quote object from the quotes array and returns the randomly selected object. 
-function getRandomQuote() {
+const getRandomQuote = () => {
     var selectedQuote;
     var randNum;
     if (tempArray.length > 0) {
@@ -50,27 +50,8 @@ const printQuote = () => {
     window.clearTimeout(quoteTimer);
     quoteTimer = window.setInterval(printQuote, 30000);
 };
-/*function printQuote() {
-    var tempQuoteObject = getRandomQuote(); // Variable to hold the random quote object pulled from the quotes array
-    console.log("THE RANDOMLY SELECTED QUOTE IS: " + tempQuoteObject.quote);
-    var HTML = ''; // Variable to hold the constructed string that is to be to be displayed
-    HTML += '<p class="quote">' + tempQuoteObject.quote + '</p>';
-    HTML += '<p class="source">' + tempQuoteObject.source;
-    if (tempQuoteObject.citation){
-        HTML += '<span class="citation">' + tempQuoteObject.citation + '</span>';
-    };
-    if (tempQuoteObject.year){ 
-        HTML += '<span class="year">' + tempQuoteObject.year + '</span></p>';
-    };
-    HTML += '<p class="tag">' + tempQuoteObject.tag + '</p>';
-    console.log('THE FOLLOWING HTML STRING HAS BEEN CONSTRUCTED: ' + HTML);
-    document.getElementById('quote-box').innerHTML = HTML;
 
-    window.clearTimeout(quoteTimer);
-    quoteTimer = window.setInterval(printQuote, 30000);
-};*/
-
-// colorChange generates a random rgb color 
+// The function colorChange generates and returns a random RGB color
 const colorChange = () => {
     var randValue;
     var randColor = 'rgb(';
@@ -84,19 +65,6 @@ const colorChange = () => {
     };
 return randColor;
 };
-/*function colorChange() {
-    var randValue;
-    var randColor = 'rgb(';
-    for (var i = 0; i < 3; i ++){
-        randValue = Math.floor(Math.random() * 255);
-        if (i !== 2){
-            randColor += randValue + ',';
-        } else {
-            randColor += randValue + ')'
-        }
-    };
-return randColor;
-};*/
 
 // event listener to respond to "Show another quote" button clicks when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
