@@ -71,8 +71,8 @@ var domElement2 = document.querySelector('#loadQuote');
 document.getElementById('loadQuote').addEventListener("click", () => {
     var newColor1 = colorChange();
     var newColor2 = colorChange();
-    console.log("new color 1 is " + newColor1);
-    console.log("new color 2 is " + newColor2);
+    console.log("new background color is " + newColor1);
+    console.log("new button color is " + newColor2);
     domElement1.style.backgroundColor = newColor1;
     domElement2.style.backgroundColor = newColor2;
     console.log("------END------");
