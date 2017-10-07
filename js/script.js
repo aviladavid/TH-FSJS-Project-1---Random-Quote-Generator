@@ -95,7 +95,7 @@ function getRandomQuote() {
         console.log("Contents of 'quotes' array has been copied to tempArray");
         getRandomQuote();
     };
-    return selectedQuote; // object not being assigned properly to the variable
+    return selectedQuote; 
 };
 
 /* printQuote does 4 things: 
@@ -105,17 +105,19 @@ function getRandomQuote() {
 4) Displays (prints) the final HTML to the page */
 function printQuote() {
     var randomQuote = getRandomQuote(); // Variable to hold the random quote object pulled from the quotes array
-    console.log('Random object selected from the quotes array:');
-    console.log(randomQuote);
+    console.log("The random quote selected is: " + randomQuote.quote);
     var HTML = ''; // Variable to hold the constructed string that is to be to be displayed
-    HTML += '<p class="quote">' + randomQuote['quote'] + '</p>';
-    HTML += '<p class="source">' + randomQuote['source'];
-    HTML += '<span class="citation">' + randomQuote['citation'] + '</span>';
-    HTML += '<span class="year">' + randomQuote['year'] + '</span></p>';
+    HTML += '<p class="quote">' + randomQuote.quote + '</p>';
+    HTML += '<p class="source">' + randomQuote.source;
+    if (randomQuote.citation){
+        HTML += '<span class="citation">' + randomQuote.citation + '</span>';
+    };
+    if (randomQutoe.year){ 
+        HTML += '<span class="year">' + randomQuote['year'] + '</span></p>';
+    };
     HTML += '<p class="tag">' + randomQuote['tag'] + '</p>';
     console.log('THE FOLLOWING HTML STRING HAS BEEN CONSTRUCTED: ' + HTML);
     document.getElementById('quote-box').innerHTML = HTML;
-
 };
 
 // colorChange generates a random rgb color 
